@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: `${__dirname}/client/src/index.jsx`,
   module: {
     rules: [{
       test: [/\.jsx$/],
@@ -7,13 +7,17 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-react', '@babel/preset-env']
-        }
-      }
-    }]
+          presets: ['@babel/preset-react', '@babel/preset-env'],
+        },
+      },
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: ['eslint-loader'],
+    }],
   },
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/client/dist'
-  }
+    path: `${__dirname}/client/dist`,
+  },
 };

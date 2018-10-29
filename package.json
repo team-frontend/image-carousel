@@ -10,13 +10,14 @@
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch",
     "seed": "nodemon database/seed.js",
-    "fake": "nodemon database/fakeData.js"
+    "fake": "nodemon database/fakeData.js",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/react-fontawesome": "^0.1.3",
-    "eslint": "^5.8.0",
+    "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mysql": "^2.16.0",
@@ -28,7 +29,12 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "webpack": "^4.23.0",
     "webpack-cli": "^3.1.2"
   },

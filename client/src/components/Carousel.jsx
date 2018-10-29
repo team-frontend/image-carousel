@@ -6,18 +6,18 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      direction: true
-    }
+      direction: true,
+    };
   }
 
   render() {
     return (
       <div>
-        <Arrow direction={this.state.direction}/>
+        <Arrow direction={this.state.direction} />
         <Image />
-        <Arrow direction={!this.state.direction}/>
+        <Arrow direction={!this.state.direction} />
       </div>
-    )
+    );
   }
 }
 
