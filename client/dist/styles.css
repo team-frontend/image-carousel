@@ -17,10 +17,42 @@
     100% { transform: translate(1px, -2px) rotate(-10deg); }
 }
 
-.true {
+/* .true {
   float: left;
 }
 
 .false {
   float: right;
+} */
+
+.fas.fa-arrow-left {
+  border: solid red;
+  font-size: 32px;
 }
+
+.fas.fa-arrow-right {
+  border: solid red;
+  font-size: 32px;
+}
+
+.carouselContainer {
+  position: relative;
+  border: solid red;
+  height: 700px;
+  width: 90%;
+}
+
+.firstImageContainer {
+  width: 50%;
+}
+
+.imageContainer {
+  width: 25%;
+  position: absolute;
+  /* height: 400px; */
+}
+
+/* .imageContainer:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+} */

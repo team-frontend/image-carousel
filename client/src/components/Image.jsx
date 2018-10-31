@@ -3,16 +3,22 @@ import React from 'react';
 class Image extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      image: [],
+    };
   }
 
   render() {
+    // console.log('this is props image', this.props.images)
+    const otherImages = this.props.images.slice(1);
     return (
-      <div>
-        <img className="pop" src="https://fritos.com/images/default-source/blue-bag-image/cheetos-crunchy-flamin-hot.png?sfvrsn=5651573a_2"/>
-        <img className="pop" src="https://fritos.com/images/default-source/blue-bag-image/cheetos-crunchy-flamin-hot.png?sfvrsn=5651573a_2"/>
-        <img className="pop" src="https://fritos.com/images/default-source/blue-bag-image/cheetos-crunchy-flamin-hot.png?sfvrsn=5651573a_2"/>
+      <div className='carouselContainer' >
+        {this.props.images.length === 0 ? '' : <img src={`${this.props.images[0].imageUrl}`} className='firstImageContainer' />}
+        {otherImages.map(image => (
+          <img src={`${image.imageUrl}`} className='imageContainer' />
+        ))}
       </div>
-    )
+    );
   }
 }
 
