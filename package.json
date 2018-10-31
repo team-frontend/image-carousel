@@ -1,17 +1,55 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "image-carousel",
+  "description": "> Project description",
   "author": "",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "seed": "nodemon database/seed.js",
+    "fake": "nodemon database/fakeData.js",
+    "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.7",
+    "@fortawesome/free-solid-svg-icons": "^5.4.2",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "webpack": "^4.23.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-frontend/image-carousel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/team-frontend/image-carousel/issues"
+  },
+  "homepage": "https://github.com/team-frontend/image-carousel#readme"
 }
