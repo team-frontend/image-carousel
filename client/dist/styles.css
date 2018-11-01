@@ -1,4 +1,64 @@
-.pop:hover {
+.fas.fa-arrow-left {
+  border: solid red;
+  font-size: 32px;
+  color: red;
+}
+
+.fas.fa-arrow-right {
+  border: solid red;
+  font-size: 32px;
+  color: red;
+}
+
+/* .item-a {
+  grid-area: main;
+}
+
+.item-b {
+  grid-area: others;
+} */
+
+.carouselContainer {
+  position: relative;
+  border: solid red;
+  height: 700px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+    "main others others others others"
+    "main others others others others";
+  grid-auto-flow: row;
+  
+}
+
+.firstImageContainer {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  width: 100%;
+  grid-area: main;
+}
+
+.imageContainer {
+  width: 25%;
+  /* grid-area: others; */
+  /* position: absolute; */
+  /* height: 400px; */
+}
+
+.selectedImage {
+  display: block;
+  margin: auto;
+}
+
+/* .imageContainer:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+} */
+
+/* Hot Cheetos animation */
+/* .pop:hover {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
@@ -15,46 +75,5 @@
     80% { transform: translate(-1px, -1px) rotate(10deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-10deg); }
-}
-
-/* .true {
-  float: left;
-}
-
-.false {
-  float: right;
 } */
 
-.fas.fa-arrow-left {
-  border: solid red;
-  font-size: 32px;
-  color: red;
-}
-
-.fas.fa-arrow-right {
-  border: solid red;
-  font-size: 32px;
-  color: red;
-}
-
-.carouselContainer {
-  position: relative;
-  border: solid red;
-  height: 700px;
-  width: 90%;
-}
-
-.firstImageContainer {
-  width: 50%;
-}
-
-.imageContainer {
-  width: 25%;
-  /* position: absolute; */
-  /* height: 400px; */
-}
-
-/* .imageContainer:hover {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-} */

@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Image = (props) => (
-  <div> Hi </div>
+  <div onClick={props.renderImage}>
+    <img src={`${props.image}`} className="selectedImage" />
+  </div>
 )
 
 export default Image;

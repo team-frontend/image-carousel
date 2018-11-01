@@ -11,7 +11,7 @@ class Carousel extends React.Component {
       images: [],
       currentIndex: 0,
       toggle: false,
-      test: false,
+      image: [],
     };
     this.renderImage = this.renderImage.bind(this);
     this.goBack = this.goBack.bind(this);
@@ -29,51 +29,71 @@ class Carousel extends React.Component {
       .catch(() => console.log('Error'));
   }
 
-  //test if button works, need to refactor for actual functionality
   goBack() {
-    this.setState({
-      test: !this.state.test
-    });
-  }
-
-  //test if button works, need to refactor for actual functionality
-  goForward() {
-    this.setState({
-      test: !this.state.test
-    });
-  }
-
-  //function that when image in images is clicked, the index of that clicked image is passed over, so that when you click left or right arrow, we know which image should show next
-  imageIndex() {
-    
-  }
-
-  //test to change image, should update image with clicked image and change back to carousel if clicked out of image
-  renderImage(e) {
-    console.log(e.target)
-    if (!this.state.toggle) {
+    console.log('clicked back, the image id before this is ', this.state.currentIndex - 1);
+    console.log('this is previous image url', this.state.images[this.state.currentIndex - 1].imageUrl);
+    if (this.state.toggle) {
       this.setState({
-        images: [{imageUrl: 'https://s3-us-west-1.amazonaws.com/zillowhouses/cliff-house-interior.jpg'}],
+        currentIndex: this.state.currentIndex - 1,
+        image: this.state.images[this.state.currentIndex - 1].imageUrl,
       });
     } else {
-      
+      console.log('move carousel back');
     }
-    // return (
-    //   <Image />
-    // )
+    // need to do if else to check if carousel or selected image is shown. If carousel, the arrows need to move differently than if 1 image
+  }
+
+  goForward() {
+    console.log('clicked forward, the image id after this is ', Number(this.state.currentIndex) + 1) // why need to invoke number on this.state.currentIndex? it adds as string when not
+    if (this.state.toggle) {
+      this.setState({
+        currentIndex: Number(this.state.currentIndex) + 1,
+        image: this.state.images[Number(this.state.currentIndex) + 1].imageUrl,
+      });
+    } else {
+      console.log('move carousel forward');
+    }
+    // need to do if else to check if carousel or selected image is shown. If carousel, the arrows need to move differently than if 1 image
+  }
+
+  renderImage(e) {
+    // console.log('this is the target src', e.target.src)
+    if (!this.state.toggle) {
+      this.setState({
+        image: [e.target.src],
+        currentIndex: e.target.id,
+        toggle: true,
+      });
+    } else if (this.state.toggle) {
+      this.setState({
+        images: this.state.images,
+        toggle: false,
+      });
+    }
+  }
+
+  renderSelectedImage() {
+    return (
+      <Image image={this.state.image} renderImage={this.renderImage} />
+    );
+  }
+
+  renderCarousel() {
+    return (
+      <Images images={this.state.images} renderImage={this.renderImage} />
+    );
   }
 
   render() {
-    console.log('this is test state', this.state.test);
+    console.log('this is images state', this.state.images);
+    console.log('this is image state', this.state.image)
     return (
       <div>
         <LeftArrow goBack={this.goBack} />
-        {/* if toggle is false - show Image component with all images */}
-        {/* else if toggle is true - show new Image component with clicked image */}
-        {/* {this.state.toggle ? this.renderImage(): this.renderImages()} */}
-        <Image />
-        <Images images={this.state.images} renderImage={this.renderImage} />
         <RightArrow goForward={this.goForward} />
+        {this.state.toggle ? this.renderSelectedImage(): this.renderCarousel()}
+        {/* <Image image={this.state.image} />
+        <Images images={this.state.images} renderImage={this.renderImage} /> */}
       </div>
     );
   }
