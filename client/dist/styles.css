@@ -28,11 +28,13 @@
 .fas.fa-arrow-left {
   border: solid red;
   font-size: 32px;
+  color: red;
 }
 
 .fas.fa-arrow-right {
   border: solid red;
   font-size: 32px;
+  color: red;
 }
 
 .carouselContainer {
@@ -48,7 +50,7 @@
 
 .imageContainer {
   width: 25%;
-  position: absolute;
+  /* position: absolute; */
   /* height: 400px; */
 }
 
