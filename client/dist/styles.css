@@ -1,13 +1,11 @@
 .fas.fa-arrow-left {
-  border: solid red;
   font-size: 32px;
-  color: red;
+  /* position: absolute; */
 }
 
 .fas.fa-arrow-right {
-  border: solid red;
   font-size: 32px;
-  color: red;
+  /* position: absolute; */
 }
 
 /* .item-a {
@@ -20,7 +18,6 @@
 
 .carouselContainer {
   /* position: relative; */
-  border: solid red;
   height: 200px;
   width: 2000px;
   display: grid;
