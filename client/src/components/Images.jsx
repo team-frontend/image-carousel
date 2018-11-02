@@ -14,7 +14,7 @@ class Images extends React.Component {
     let imageCount = 0; //have to use let instead of const. const cannot increment for some reason
     return (
       <div className='carouselContainer' >
-        {this.props.images.length === 0 ? '' : <img src={`${this.props.images[0].imageUrl}`} className='firstImageContainer' id={imageCount} />}
+        {this.props.images.length === 0 ? '' : <img src={`${this.props.images[0].imageUrl}`} className='firstImageContainer' id={imageCount} onClick={this.props.renderImage} />}
         {otherImages.map(image => (
           <img src={`${image.imageUrl}`} className='imageContainer' id={imageCount += 1} onClick={this.props.renderImage} />
         ))}
