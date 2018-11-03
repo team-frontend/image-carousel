@@ -1,8 +1,8 @@
 import React from 'react';
 
 const RightArrow = props => (
-  <span className="rightArrowBlock" onClick={props.goForward}>
-    <i className="fas fa-angle-right" />
+  <span>
+    <i className="fas fa-arrow-right"></i>
   </span>
 );
 
