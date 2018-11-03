@@ -24,7 +24,7 @@ class Carousel extends React.Component {
       },
       carouselStyle: {
         overflow: 'hidden',
-        maxWidth: '1324.64px',
+        maxWidth: '1629.45px',
       },
     };
     this.renderImage = this.renderImage.bind(this);
@@ -53,7 +53,7 @@ class Carousel extends React.Component {
       this.setState({
         viewStyle: {
           position: 'relative',
-          right: stringPxToNum(this.state.viewStyle.right) - 224.44 + 'px'
+          right: stringPxToNum(this.state.viewStyle.right) - 274.91 + 'px'
         },
       });
     }
@@ -66,11 +66,11 @@ class Carousel extends React.Component {
         currentIndex: Number(this.state.currentIndex) + 1,
         image: this.state.images[Number(this.state.currentIndex) + 1].imageUrl,
       });
-    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) < 661)) { // hardcoded stopping number, need to refactor to be dynamic
+    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) < 1373)) { // hardcoded stopping number, need to refactor to be dynamic
       this.setState({
         viewStyle: {
           position: 'relative',
-          right: stringPxToNum(this.state.viewStyle.right) + 224.44 + 'px'
+          right: stringPxToNum(this.state.viewStyle.right) + 274.91 + 'px'
         },
       });
     }
@@ -85,7 +85,7 @@ class Carousel extends React.Component {
         toggle: true,
         carouselStyle: {
           overflow: 'visible',
-          maxWidth: '1324.64px',
+          maxWidth: '1629.45px',
         },
       });
     } else if (this.state.toggle) {
@@ -94,7 +94,7 @@ class Carousel extends React.Component {
         toggle: false,
         carouselStyle: {
           overflow: 'hidden',
-          maxWidth: '1324.64px',
+          maxWidth: '1629.45px',
         },
       });
     }
