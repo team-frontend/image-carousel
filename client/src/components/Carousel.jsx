@@ -6,7 +6,7 @@ import Image from './Image.jsx';
 import { relative } from 'path';
 
 const stringPxToNum = (string) => {
-  let num = string.split('px');
+  const num = string.split('px');
   return Number(num[0]);
 };
 
@@ -18,9 +18,13 @@ class Carousel extends React.Component {
       currentIndex: 0,
       toggle: false,
       image: [],
-      viewStyle : {
-        position: "relative",
-        right: "0px"
+      viewStyle: {
+        position: 'relative',
+        right: '0px',
+      },
+      carouselStyle: {
+        overflow: 'hidden',
+        maxWidth: '1324.64px',
       },
     };
     this.renderImage = this.renderImage.bind(this);
@@ -40,41 +44,36 @@ class Carousel extends React.Component {
   }
 
   goBack() {
-    console.log('clicked back, the image id before this is ', this.state.currentIndex - 1);
-    console.log('this is previous image url', this.state.images[this.state.currentIndex - 1].imageUrl);
     if (this.state.toggle) {
       this.setState({
         currentIndex: this.state.currentIndex - 1,
         image: this.state.images[this.state.currentIndex - 1].imageUrl,
       });
-    } else {
+    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) > 0)) {
       this.setState({
         viewStyle: {
-          position: "relative",
-          right: stringPxToNum(this.state.viewStyle.right) - 100 + "px"
+          position: 'relative',
+          right: stringPxToNum(this.state.viewStyle.right) - 224.44 + 'px'
         },
       });
     }
-    // need to do if else to check if carousel or selected image is shown. If carousel, the arrows need to move differently than if 1 image
   }
 
   goForward() {
-    console.log('clicked forward, the image id after this is ', Number(this.state.currentIndex) + 1) // why need to invoke number on this.state.currentIndex? it adds as string when not
+    console.log('clicked forward, the image id after this is ', Number(this.state.currentIndex) + 1); // why need to invoke number on this.state.currentIndex? it adds as string when not
     if (this.state.toggle) {
       this.setState({
         currentIndex: Number(this.state.currentIndex) + 1,
         image: this.state.images[Number(this.state.currentIndex) + 1].imageUrl,
       });
-    } else {
+    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) < 661)) { // hardcoded stopping number, need to refactor to be dynamic
       this.setState({
         viewStyle: {
-          position: "relative",
-          right: stringPxToNum(this.state.viewStyle.right) + 100 + "px"
+          position: 'relative',
+          right: stringPxToNum(this.state.viewStyle.right) + 224.44 + 'px'
         },
       });
-      // console.log(stringPxToNum(this.state.viewStyle.right) + 100 + "px")
     }
-    // need to do if else to check if carousel or selected image is shown. If carousel, the arrows need to move differently than if 1 image
   }
 
   renderImage(e) {
@@ -84,11 +83,19 @@ class Carousel extends React.Component {
         image: [e.target.src],
         currentIndex: e.target.id,
         toggle: true,
+        carouselStyle: {
+          overflow: 'visible',
+          maxWidth: '1324.64px',
+        },
       });
     } else if (this.state.toggle) {
       this.setState({
         images: this.state.images,
         toggle: false,
+        carouselStyle: {
+          overflow: 'hidden',
+          maxWidth: '1324.64px',
+        },
       });
     }
   }
@@ -107,17 +114,15 @@ class Carousel extends React.Component {
 
 
   render() {
-    console.log('this is images state', this.state.images);
-    console.log('this is image state', this.state.image)
-    console.log('this is viewStyle', this.state.viewStyle)
+    // console.log('this is images state', this.state.images);
+    // console.log('this is image state', this.state.image)
+    console.log('this is viewStyle.right num', stringPxToNum(this.state.viewStyle.right));
     return (
-      <div>
-          <LeftArrow goBack={this.goBack} />
-          <RightArrow goForward={this.goForward} />
+      <div style={this.state.carouselStyle}>
+        <LeftArrow goBack={this.goBack} />
+        <RightArrow goForward={this.goForward} />
         <div style={this.state.viewStyle}>
-          {this.state.toggle ? this.renderSelectedImage(): this.renderCarousel()}
-          {/* <Image image={this.state.image} />
-          <Images images={this.state.images} renderImage={this.renderImage} /> */}
+          {this.state.toggle ? this.renderSelectedImage() : this.renderCarousel()}
         </div>
       </div>
     );
