@@ -1,58 +1,155 @@
-.pop:hover {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-10deg); }
-    20% { transform: translate(-3px, 0px) rotate(10deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(10deg); }
-    50% { transform: translate(-1px, 2px) rotate(-10deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-10deg); }
-    80% { transform: translate(-1px, -1px) rotate(10deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-10deg); }
-}
-
-/* .true {
+.fas.fa-angle-left {
+  font-size: 45px;
   float: left;
-}
-
-.false {
-  float: right;
-} */
-
-.fas.fa-arrow-left {
-  border: solid red;
-  font-size: 32px;
-}
-
-.fas.fa-arrow-right {
-  border: solid red;
-  font-size: 32px;
-}
-
-.carouselContainer {
   position: relative;
-  border: solid red;
-  height: 700px;
-  width: 90%;
+  display: inline-block;
+  top: 0px;
+  color: #fff8ea;
+}
+
+.leftArrowBlock {
+  opacity: 0.7;
+  float: left;
+  position: relative;
+  display: inline-block;
+  top: 205px;
+  z-index: 500;
+  background-color: #4f4849;
+  margin-left: 5px;
+  border: solid white 0.5px;
+  padding: 5px;
+}
+
+.fas.fa-angle-right {
+  font-size: 45px;
+  float: right;
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  color: #fff8ea;
+}
+
+.rightArrowBlock {
+  opacity: 0.7;
+  float: right;
+  position: relative;
+  display: inline-block;
+  top: 205px;
+  z-index: 500;
+  background-color: #4f4849;
+  margin-right: 5px;
+  border: solid white 0.5px;
+  padding: 5px;
+}
+
+.rightArrowBlock:hover {
+  opacity: 0.95;
+  transition: 0.3s;
+}
+
+.fas.fa-angle-right:hover {
+  color: #4198FF;
+}
+
+.leftArrowBlock:hover {
+  opacity: 0.95;
+  transition: 0.3s;
+}
+
+.fas.fa-angle-left:hover {
+  color: #4198FF;
+}
+
+/* grid-template-column minmax(200px) - why does changing this determine how many columns and how many pics overflow to next row? */
+.carouselContainer {
+  width: 3000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: 50% 50%;
+  grid-auto-flow: row; 
+  grid-gap: 2px;
+}
+
+/* adjust right px to slide picture */
+.imageViewer {
+  position: relative;
+  right: 0px; 
+}
+
+.carousel {
+  max-width: 1324.64px;
 }
 
 .firstImageContainer {
-  width: 50%;
+  grid-column: span 2;
+  grid-row: span 2;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
 }
 
 .imageContainer {
-  width: 25%;
-  position: absolute;
-  /* height: 400px; */
+  width: 100%;
+  height: 100%;
+}
+
+.selectedImage {
+  position: fixed;
+  left: 15%;
+}
+
+/* can't use hover on first image...spazzes out */
+/* .firstImageContainer:hover {
+  width: 102%;
+  height: 102%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+   -ms-transition: all 0.5s ease;
+       transition: all 0.5s ease;
+} */
+
+/* .imageContainer:hover {
+  width: 102%;
+  height: 102%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+   -ms-transition: all 0.5s ease;
+       transition: all 0.5s ease; */
+  /* -webkit-transform: scale(1.2);
+  transform: scale(1.2); */
+/* } */
+
+h1 {
+  font-family: sans-serif;
+}
+
+h1:hover{
+  animation: shake 1.5s;
+  animation-iteration-count: infinite;
 }
 
 /* .imageContainer:hover {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 } */
+
+/* Hot Cheetos animation */
+/* .pop:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+} */
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-5deg); }
+    20% { transform: translate(-2px, 0px) rotate(5deg); }
+    30% { transform: translate(2px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(5deg); }
+    50% { transform: translate(-1px, 2px) rotate(-5deg); }
+    60% { transform: translate(-2px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-5deg); }
+    80% { transform: translate(-1px, -1px) rotate(5deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-5deg); }
+}
+

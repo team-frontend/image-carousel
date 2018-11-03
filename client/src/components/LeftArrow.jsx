@@ -1,8 +1,8 @@
 import React from 'react';
 
 const LeftArrow = props => (
-  <span>
-    <i className="fas fa-arrow-left"></i>
+  <span className="leftArrowBlock" onClick={props.goBack}>
+    <i className="fas fa-angle-left" />
   </span>
 );
 
