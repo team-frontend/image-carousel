@@ -70,11 +70,11 @@
   grid-gap: 2px;
 }
 
-/* adjust right px to slide picture */
+/* adjust right px to slide picture
 .imageViewer {
   position: relative;
   right: 0px; 
-}
+} */
 
 .carousel {
   max-width: 1324.64px;

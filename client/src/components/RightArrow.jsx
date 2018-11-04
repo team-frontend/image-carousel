@@ -1,7 +1,8 @@
 import React from 'react';
+import rightArrowStyle from './RightArrow.css';
 
 const RightArrow = props => (
-  <span className="rightArrowBlock" onClick={props.goForward}>
+  <span className={rightArrowStyle.rightArrowBlock} onClick={props.goForward}>
     <i className="fas fa-angle-right" />
   </span>
 );

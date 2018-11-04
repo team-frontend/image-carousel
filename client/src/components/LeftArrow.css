@@ -1,0 +1,30 @@
+.fas.fa-angle-left {
+    font-size: 45px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    color: #fff8ea;
+}
+  
+  .leftArrowBlock {
+    opacity: 0.7;
+    float: left;
+    position: relative;
+    display: inline-block;
+    top: 205px;
+    z-index: 500;
+    background-color: #4f4849;
+    margin-left: 5px;
+    border: solid white 0.5px;
+    padding: 5px;
+}
+
+  .leftArrowBlock:hover {
+    opacity: 0.95;
+    transition: 0.3s;
+}
+  
+  .fas.fa-angle-left:hover {
+    color: #4198FF;
+}
