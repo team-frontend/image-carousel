@@ -1,39 +1,15 @@
 # Project Name
 
-> Project description
+> Image Carousel from Zillow
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
+  - https://github.com/team-frontend/mortgage-calculator
+  - https://github.com/team-frontend/detailed-part
+  - https://github.com/team-frontend/nearby-homes
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the root directory: npm install
 
-```sh
-npm install -g webpack
-npm install
-```
 
