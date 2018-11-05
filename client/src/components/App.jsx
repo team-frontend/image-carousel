@@ -3,6 +3,7 @@ import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import Carousel from './Carousel.jsx';
 import SlideShow from './SlideShow.jsx';
+import appStyle from './App.css';
 import { relative } from 'path';
 
 const stringPxToNum = (string) => {
@@ -77,7 +78,6 @@ class App extends React.Component {
   }
 
   renderImage(e) {
-    // console.log('this is the target src', e.target.src)
     if (!this.state.toggle) {
       this.setState({
         image: [e.target.src],
@@ -113,11 +113,9 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log('this is images state', this.state.images);
-    // console.log('this is image state', this.state.image)
-    // console.log('this is viewStyle.right num', stringPxToNum(this.state.viewStyle.right));
     return (
       <div style={this.state.carouselStyle}>
+      <h1 className={appStyle.h1}>HHAAWT-CHEETOS</h1>
         <LeftArrow goBack={this.goBack} />
         <RightArrow goForward={this.goForward} />
         <div style={this.state.viewStyle}>

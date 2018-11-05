@@ -1,4 +1,4 @@
-.fas.fa-angle-right {
+#right {
     font-size: 45px;
     float: right;
     position: relative;
@@ -25,6 +25,6 @@
     transition: 0.3s;
   }
   
-  .fas.fa-angle-right:hover {
+ #right:hover {
     color: #4198FF;
   }

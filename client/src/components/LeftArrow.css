@@ -1,4 +1,4 @@
-.fas.fa-angle-left {
+#left {
     font-size: 45px;
     float: left;
     position: relative;
@@ -20,11 +20,11 @@
     padding: 5px;
 }
 
-  .leftArrowBlock:hover {
+ #left:hover {
     opacity: 0.95;
     transition: 0.3s;
 }
   
-  .fas.fa-angle-left:hover {
+#left:hover {
     color: #4198FF;
 }

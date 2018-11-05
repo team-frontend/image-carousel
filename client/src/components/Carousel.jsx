@@ -3,7 +3,6 @@ import carouselStyle from './Carousel.css';
 // import { url } from 'inspector';
 
 const Carousel = (props) => {
-  // console.log('this is props image', props.images);
   const otherImages = props.images.slice(1);
   let imageCount = 0; //have to use let instead of const. const cannot increment for some reason
   return (
