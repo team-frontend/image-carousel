@@ -3,7 +3,6 @@ import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import Carousel from './Carousel.jsx';
 import SlideShow from './SlideShow.jsx';
-import appStyle from './App.css';
 import { relative } from 'path';
 
 const stringPxToNum = (string) => {
@@ -61,13 +60,12 @@ class App extends React.Component {
   }
 
   goForward() {
-    console.log('clicked forward, the image id after this is ', Number(this.state.currentIndex) + 1); // why need to invoke number on this.state.currentIndex? it adds as string when not
     if (this.state.toggle) {
       this.setState({
         currentIndex: Number(this.state.currentIndex) + 1,
         image: this.state.images[Number(this.state.currentIndex) + 1].imageUrl,
       });
-    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) < 1373)) { // hardcoded stopping number, need to refactor to be dynamic
+    } else if (this.state.toggle === false && (stringPxToNum(this.state.viewStyle.right) < 1373)) { 
       this.setState({
         viewStyle: {
           position: 'relative',
@@ -115,7 +113,6 @@ class App extends React.Component {
   render() {
     return (
       <div style={this.state.carouselStyle}>
-      <h1 className={appStyle.h1}>HHAAWT-CHEETOS</h1>
         <LeftArrow goBack={this.goBack} />
         <RightArrow goForward={this.goForward} />
         <div style={this.state.viewStyle}>

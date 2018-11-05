@@ -6,8 +6,6 @@ const connection = mysql.createConnection({
   database: 'img_carousel',
 });
 
-// connection.connect();
-
 const getAllImages = (houseID, callback) => {
   connection.query('SELECT imageUrl FROM images WHERE houseID = (?)', [houseID], (err, results) => {
     if (err) {
