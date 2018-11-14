@@ -15,7 +15,7 @@ module.exports.postById = (req, res) => {
   // const id = req.params.houseID;
 };
 
-module.exports.deleteByIda = (req, res) => {
+module.exports.deleteById = (req, res) => {
   // const id = req.params.houseID;
 };
 
