@@ -15,7 +15,7 @@ module.exports.post = (req, res) => {
 
 module.exports.update = (req, res) => {
   const id = req.params.image;
-  db.updateImage(id)
+  db.updateImage({ id, ...req.body })
     .then(results => res.status(200).send({ data: results }))
     .catch(err => res.status(500).send(err));
 };
