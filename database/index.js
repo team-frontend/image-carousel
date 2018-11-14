@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mysql = require('mysql');
+const mysql = require('promise-mysql');
 
 module.exports = mysql.createPool({
   host: process.env.DB_DOST,

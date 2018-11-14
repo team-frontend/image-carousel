@@ -5,10 +5,10 @@ const house = require('./house');
 const routerImages = express.Router();
 const routerHome = express.Router();
 
-routerImages.post('/images', images.getById);
-routerImages.get('/images/:image', images.getById);
-routerImages.patch('/images/:image', images.updateById);
-routerImages.delete('/images/:image', images.deleteById);
+routerImages.post('/images', images.get);
+routerImages.get('/images/:image', images.post);
+routerImages.patch('/images/:image', images.update);
+routerImages.delete('/images/:image', images.delete);
 
 routerHome.post('/images/houses/:house', house.postByHouseId);
 routerHome.get('/images/houses/:house', house.getByHouseId);

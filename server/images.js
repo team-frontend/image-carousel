@@ -1,24 +1,28 @@
 const db = require('../database/index.js');
 
-module.exports.getById = (req, res) => {
-  const id = req.params.houseID;
-  db.getAllImages(id, (err, results) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(results);
-    }
-  });
+module.exports.get = (req, res) => {
+  const id = req.params.song;
+  db.getImage(id)
+    .then(results => res.status(200).send(results))
+    .catch(err => res.status(500).send(err));
 };
 
 module.exports.post = (req, res) => {
-  // const id = req.params.houseID;
+  db.addImage()
+    .then(results => res.status(200).send(results))
+    .catch(err => res.status(500).send(err));
 };
 
-module.exports.updateById = (req, res) => {
-  // const id = req.params.houseID;
+module.exports.update = (req, res) => {
+  const id = req.params.song;
+  db.updateImage(id)
+    .then(results => res.status(200).send(results))
+    .catch(err => res.status(500).send(err));
 };
 
-module.exports.deleteById = (req, res) => {
-  // const id = req.params.houseID;
+module.exports.delete = (req, res) => {
+  const id = req.params.song;
+  db.deleteImage(id)
+    .then(results => res.status(200).send(results))
+    .catch(err => res.status(500).send(err));
 };
