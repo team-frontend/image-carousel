@@ -8,7 +8,7 @@ module.exports.get = (req, res) => {
 };
 
 module.exports.post = (req, res) => {
-  db.addImage()
+  db.addImage(req.body)
     .then(results => res.status(200).send(results))
     .catch(err => res.status(500).send(err));
 };
