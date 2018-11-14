@@ -9,8 +9,7 @@
   "scripts": {
     "start:dev": "nodemon server/index.js",
     "build:dev": "webpack -d --watch",
-    "seed": "node database/seed.js",
-    "fake": "node database/fakeData.js",
+    "seed": "mysql -u root < database/schema.sql && node database/seeding/seed.js",
     "lint": "eslint . --fix",
     "test": "jest"
   },

@@ -1,29 +1,21 @@
-const dbIndex = require('../index');
-const db = require('./fakeData');
+const db = require('../index');
+const faker = require('./fakeData');
 
 const insertImg = () => {
-  db.imgData.forEach((img) => {
+  faker.imgData.forEach((img) => {
     const query = 'INSERT INTO images (imageUrl, houseID) VALUES (?, ?)';
-    dbIndex.connection.query(query, [img.imageUrl, img.homeID], (err, results) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-      }
-    });
+    db.query(query, [img.imageUrl, img.homeID])
+      .then(() => {})
+      .catch(err => console.log(err));
   });
 };
 
 const insertDescrip = () => {
-  db.descripData.forEach((descrip) => {
+  faker.descripData.forEach((descrip) => {
     const query = 'INSERT INTO house (description) VALUES (?)';
-    dbIndex.connection.query(query, [descrip.body], (err, results) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-      }
-    });
+    db.query(query, [descrip.body])
+      .then(() => {})
+      .catch(err => console.log(err));
   });
 };
 

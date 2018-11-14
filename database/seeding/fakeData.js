@@ -4,10 +4,10 @@ const faker = require('faker');
 const homeUrlBase = `${process.env.S3_BUCKET}/assets/media`;
 const imgData = [];
 const descripData = [];
-const NPOINTS = 60e6;
+const NPOINTS = 50;
 
 const imageGenerator = () => {
-  for (let i = 1; i <= NPOINTS; i += 1) {
+  for (let i = 1; i <= NPOINTS * 6; i += 1) {
     const imageStorage = {};
     imageStorage.imageUrl = `${homeUrlBase}/home${faker.random.number({ min: 1, max: 100 })}.jpg`;
     imageStorage.homeID = faker.random.number({ min: 1, max: NPOINTS });
