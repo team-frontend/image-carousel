@@ -2,12 +2,7 @@ require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
-const {
-  getById,
-  postById,
-  deleteById,
-  updateById,
-} = require('./routes');
+const { routerImages, routerHome } = require('./routes');
 
 const app = express();
 const port = process.env.PORT;
@@ -21,10 +16,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/images/houses/:houseID', postById);
-app.get('/images/houses/:houseID', getById);
-app.patch('/images/houses/:houseID', updateById);
-app.delete('/images/houses/:houseID', deleteById);
+app.use('/images/houses/:house', routerHome);
+app.use('/images/:image', routerImages);
+app.use('/images', routerImages);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

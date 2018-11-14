@@ -1,24 +1,18 @@
-const db = require('../database/index.js');
+const express = require('express');
+const images = require('./images');
+const house = require('./house');
 
-module.exports.getById = (req, res) => {
-  const id = req.params.houseID;
-  db.getAllImages(id, (err, results) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(results);
-    }
-  });
-};
+const routerImages = express.Router();
+const routerHome = express.Router();
 
-module.exports.postById = (req, res) => {
-  // const id = req.params.houseID;
-};
+routerImages.post('/images', images.getById);
+routerImages.get('/images/:image', images.getById);
+routerImages.patch('/images/:image', images.updateById);
+routerImages.delete('/images/:image', images.deleteById);
 
-module.exports.updateById = (req, res) => {
-  // const id = req.params.houseID;
-};
+routerHome.post('/images/houses/:house', house.postByHouseId);
+routerHome.get('/images/houses/:house', house.getByHouseId);
+routerHome.patch('/images/houses/:house', house.updateByHouseId);
+routerHome.delete('/images/houses/:house', house.deleteByHouseId);
 
-module.exports.deleteById = (req, res) => {
-  // const id = req.params.houseID;
-};
+module.exports = { routerImages, routerHome };
