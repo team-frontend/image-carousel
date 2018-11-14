@@ -1,23 +1,25 @@
 {
   "name": "image-carousel",
-  "description": "> Project description",
+  "description": "Image carousel DB development",
   "author": "",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
-    "build": "webpack -d --watch",
-    "seed": "nodemon database/seed.js",
-    "fake": "nodemon database/fakeData.js",
-    "lint": "eslint . --fix"
+    "start:dev": "nodemon server/index.js",
+    "build:dev": "webpack -d --watch",
+    "seed": "node database/seed.js",
+    "fake": "node database/fakeData.js",
+    "lint": "eslint . --fix",
+    "test": "jest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/react-fontawesome": "^0.1.3",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mysql": "^2.16.0",
