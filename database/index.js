@@ -1,22 +1,8 @@
-const mysql = require('mysql');
+require('dotenv').config();
+const mysql = require('promise-mysql');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'img_carousel',
+module.exports = mysql.createPool({
+  host: process.env.DB_DOST,
+  user: process.env.DB_UNAME,
+  database: process.env.DB_PASSWORD,
 });
-
-const getAllImages = (houseID, callback) => {
-  connection.query('SELECT imageUrl FROM images WHERE houseID = (?)', [houseID], (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results);
-    }
-  });
-};
-
-module.exports = {
-  connection,
-  getAllImages,
-};
