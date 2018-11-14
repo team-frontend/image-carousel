@@ -21,10 +21,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/images/:houseID', postById);
-app.get('/images/:houseID', getById);
-app.patch('/images/:houseID', updateById);
-app.delete('/images/:houseID', deleteById);
+app.post('/images/houses/:houseID', postById);
+app.get('/images/houses/:houseID', getById);
+app.patch('/images/houses/:houseID', updateById);
+app.delete('/images/houses/:houseID', deleteById);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
