@@ -15,10 +15,10 @@ module.exports.postById = (req, res) => {
   // const id = req.params.houseID;
 };
 
-module.exports.deleteById = (req, res) => {
+module.exports.updateById = (req, res) => {
   // const id = req.params.houseID;
 };
 
-module.exports.updateById = (req, res) => {
+module.exports.deleteById = (req, res) => {
   // const id = req.params.houseID;
 };

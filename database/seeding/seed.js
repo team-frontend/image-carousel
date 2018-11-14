@@ -1,5 +1,5 @@
-const dbIndex = require('./index.js');
-const db = require('./fakeData.js');
+const dbIndex = require('../index');
+const db = require('./fakeData');
 
 const insertImg = () => {
   db.imgData.forEach((img) => {
