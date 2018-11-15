@@ -3,8 +3,8 @@ const db = require('./fakeData.js');
 
 const insertImg = () => {
   db.imgData.forEach((img) => {
-    const query = 'INSERT INTO images (imageUrl, houseID) VALUES (?, ?)';
-    dbIndex.connection.query(query, [img.imageUrl, img.homeID], (err, results) => {
+    const query = 'INSERT INTO images (imageUrl, home_id) VALUES (?, ?)';
+    dbIndex.connection.query(query, [img.imageUrl, img.home_id], (err, results) => {
       if (err) {
         console.log(err);
       } else {
@@ -14,18 +14,5 @@ const insertImg = () => {
   });
 };
 
-const insertDescrip = () => {
-  db.descripData.forEach((descrip) => {
-    const query = 'INSERT INTO house (description) VALUES (?)';
-    dbIndex.connection.query(query, [descrip.body], (err, results) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-      }
-    });
-  });
-};
 
 insertImg();
-insertDescrip();

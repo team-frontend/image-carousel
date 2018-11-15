@@ -7,10 +7,5 @@ USE img_carousel;
 CREATE TABLE images (
   id INT AUTO_INCREMENT PRIMARY KEY,
   imageUrl TEXT,
-  houseID INT
-);
-
-CREATE TABLE house (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  description TEXT
+  home_id INT
 );

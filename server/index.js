@@ -11,9 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/images/:houseID', (req, res) => {
-  const id = req.params.houseID;
-  dbIndex.getAllImages(33, (err, results) => {
+app.get('/images/:home_id', (req, res) => {
+  dbIndex.getAllImages(5, (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else {
@@ -22,6 +21,18 @@ app.get('/images/:houseID', (req, res) => {
   });
 });
 
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+
+// app.get('/images/:home_id', (req, res) => {
+//   const idParam = req.params.home_id;
+//   const queryString = 'SELECT imageUrl FROM images WHERE home_id = (?)';
+//   dbIndex.connection.query(queryString, idParam, (err, data) => {
+//     if (err) {
+//       console.log('error getting the images from teh database');
+//     }
+//     res.send(data[0]);
+//   })
+// });
