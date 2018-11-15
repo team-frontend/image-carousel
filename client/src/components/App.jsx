@@ -33,7 +33,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/images/:houseID')
+    // path = listings/images/:houseID'
+    console.log( 'App.jsx line 37', `${window.location.pathname}images`)
+    fetch(`${window.location.pathname}images`)
+      
       .then(response => response.json())
       .then((data) => {
         this.setState({
