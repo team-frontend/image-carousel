@@ -21,6 +21,18 @@ app.get('/images/:home_id', (req, res) => {
   });
 });
 
+// app.post('/images', (req, res) => {
+
+// })
+
+// app.put('/images/:home_id', (req, res) => {
+  
+// })
+
+// app.delete('/images/:home_id', (req, res) => {
+  
+// })
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
