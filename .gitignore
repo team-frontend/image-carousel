@@ -6,6 +6,8 @@ client/dist/bundle.js
 
 public/assets/media/*jpg
 
+*.csv
+
 ## secrets
 .env
 *.pem
