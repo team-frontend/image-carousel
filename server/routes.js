@@ -10,9 +10,9 @@ routerImages.get('/images/:image', images.post);
 routerImages.put('/images/:image', images.update);
 routerImages.delete('/images/:image', images.delete);
 
-routerHome.post('/images/homes/:home', home.postByHomeId);
-routerHome.get('/images/homes/:home', home.getByHomeId);
-routerHome.put('/images/homes/:home', home.updateByHomeId);
-routerHome.delete('/images/homes/:home', home.deleteByHomeId);
+routerHome.post('/homes/:home/images', home.postByHomeId);
+routerHome.get('/homes/:home/images', home.getByHomeId);
+routerHome.put('/homes/:home/images', home.updateByHomeId);
+routerHome.delete('/homes/:home/images', home.deleteByHomeId);
 
 module.exports = { routerImages, routerHome };
