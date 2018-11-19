@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS carousel(
   imageUrl TEXT
 );
 
-\COPY carousel FROM 'database/NoSQL/streetsImagesFile.tsv' DELIMITER E'\t';
+\COPY carousel FROM 'database/SQL/streetsImagesFile.tsv' DELIMITER E'\t';
