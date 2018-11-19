@@ -15,7 +15,7 @@ const imageGenerator = () => {
   for (let i = 1; i <= 100; i += 1) {
     const imageStorage = {};
     imageStorage.imageUrl = homeUrls[randomNumGenerator(0, 4)];
-    imageStorage.homeID = faker.random.number({ min: 1, max: 100 });
+    imageStorage.homeID = faker.random.number({ min: 1, max: 5 });
     imgData.push(imageStorage);
   }
 };

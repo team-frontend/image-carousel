@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/images/:houseID', (req, res) => {
   const id = req.params.houseID;
-  dbIndex.getAllImages(33, (err, results) => {
+  dbIndex.getAllImages(5, (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else {
