@@ -1,25 +1,18 @@
-const mysql = require('mysql');
+const { Client } = require('pg');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'ben',
-  database: 'img_carousel',
+const client = new Client({
+  port: 5432,
+  user: 'Ben',
+  //password: '',
+  database: 'imagecarousel',
 });
 
-const getAllImages = (home_id, callback) => {
-  connection.query('SELECT imageUrl FROM images WHERE home_id = (?)', [home_id], (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results);
-    }
-  });
-};
+client.connect((err) => {
+  if (err) {
+    console.error('connection error', err.message);
+  } else {
+    console.log('connected');
+  }
+});
 
-
-
-module.exports = {
-  connection,
-  getAllImages,
-};
+module.exports = client;

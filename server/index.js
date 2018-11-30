@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 
 const app = express();
@@ -5,46 +6,34 @@ const port = 3003;
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const dbIndex = require('../database/index.js');
+const db = require('../database/controller.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/images/:home_id', (req, res) => {
-  dbIndex.getAllImages(5, (err, results) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.status(200).send(results);
-    }
-  });
+app.use((req, res, next) => {
+  // console.log(`Incoming from ${req.path} and ${req.method}`);
+  next();
 });
 
-// app.post('/images', (req, res) => {
+// app.use('/api/homes/:home/images', routerHome);
+// app.use('/api/images/:image', routerImages);
+// //app.use('/images', routerImages);
 
-// })
-
-// app.put('/images/:home_id', (req, res) => {
-  
-// })
-
-// app.delete('/images/:home_id', (req, res) => {
-  
-// })
-
+app.get('/api/homes/:id', (req, res) => {
+  const { id } = req.params;
+  let stringId = id.toString();
+  db.getAllImagesById(id, (err, data) => {
+    if (err) {
+      res.end(err);
+    } else {
+      //res.writeHead(200, { 'Content-Type': 'application/json'});
+      res.end(JSON.stringify(data));
+    }
+  })
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
-// app.get('/images/:home_id', (req, res) => {
-//   const idParam = req.params.home_id;
-//   const queryString = 'SELECT imageUrl FROM images WHERE home_id = (?)';
-//   dbIndex.connection.query(queryString, idParam, (err, data) => {
-//     if (err) {
-//       console.log('error getting the images from teh database');
-//     }
-//     res.send(data[0]);
-//   })
-// });

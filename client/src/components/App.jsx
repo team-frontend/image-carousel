@@ -3,7 +3,6 @@ import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import Carousel from './Carousel.jsx';
 import SlideShow from './SlideShow.jsx';
-import { relative } from 'path';
 
 const stringPxToNum = (string) => {
   const num = string.split('px');
@@ -33,12 +32,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/images/:houseID')
-      .then(response => response.json())
-      .then((data) => {
+    fetch('api/homes/1')
+      .then(res => res.json())
+      .then((res) =>{
+        console.log(res)
         this.setState({
-          images: data,
-        });
+          images: [res.rows[0].imageUrl]
+        })
       })
       .catch(() => console.log('Error'));
   }
@@ -76,7 +76,8 @@ class App extends React.Component {
   }
 
   renderImage(e) {
-    if (!this.state.toggle) {
+    const { toggle, images } = this.state;
+    if (!toggle) {
       this.setState({
         image: [e.target.src],
         currentIndex: e.target.id,
@@ -86,9 +87,10 @@ class App extends React.Component {
           maxWidth: '1629.45px',
         },
       });
-    } else if (this.state.toggle) {
+    } else if (toggle) {
       this.setState({
         images: this.state.images,
+        images,
         toggle: false,
         carouselStyle: {
           overflow: 'hidden',
@@ -99,14 +101,16 @@ class App extends React.Component {
   }
 
   renderSelectedImage() {
+    const { image } = this.state;
     return (
-      <SlideShow image={this.state.image} renderImage={this.renderImage} />
+      <SlideShow image={image} renderImage={this.renderImage} />
     );
   }
 
   renderCarousel() {
+    const { images } = this.state;
     return (
-      <Carousel images={this.state.images} renderImage={this.renderImage} />
+      <Carousel images={images} renderImage={this.renderImage} />
     );
   }
 
